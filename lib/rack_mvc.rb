@@ -1,4 +1,6 @@
 require "rack_mvc/version"
+require "rack_mvc/controller"
+
 #require_relative  "../app/controllers/pages_controller"
 $LOAD_PATH << File.join(File.dirname(__FILE__),"..","app","controllers")
 require "pages_controller"
