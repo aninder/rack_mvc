@@ -20,6 +20,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_runtime_dependency "pry"
+  spec.add_runtime_dependency "pry-stack_explorer"
+  spec.add_runtime_dependency "pry-doc"
+  spec.add_runtime_dependency "pry-nav"
+  spec.add_runtime_dependency "byebug"
   spec.add_runtime_dependency "rack"
   spec.add_runtime_dependency "tilt"
   spec.add_runtime_dependency "erubis"
