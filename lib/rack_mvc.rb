@@ -5,11 +5,10 @@ require "pry"
 $LOAD_PATH << File.join("app","controllers")
 
 module RackMvc
+
   class Application
     def call(env)
-      request = Rack::Request.new(env)
       response = Rack::Response.new
-  #    binding.pry
       if request.path_info == "/"
         response.status = 302
         response.header["location"] = "/pages/check"
