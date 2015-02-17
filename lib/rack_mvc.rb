@@ -26,7 +26,8 @@ module RackMvc
         #no rendering done by action,use the template same as action name
       else
         #render default action template if no rendering done
-        return controller.render_default_action_template
+        controller.render_default_action_template(action)
+        return controller.response
       end
     end
     def self.const_missing(const)
