@@ -27,5 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "byebug"
   spec.add_runtime_dependency "rack"
   spec.add_runtime_dependency "tilt"
+  spec.add_runtime_dependency "unicorn"
   spec.add_runtime_dependency "erubis"
 end
