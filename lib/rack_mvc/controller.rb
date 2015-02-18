@@ -16,16 +16,22 @@ module RackMvc
     #if action doesn't render call the default template,
     # action="default" then view_name="default.erb"
     def render_default_action_template(action)
-      binding.pry
       view = get_view(action)
-      setupResponse(200, {"content_type"=>"text/html"}, "no rendering done" )
+      setupResponse(200, {"content_type"=>"text/html"}, view)
     end
 
     private
-    def get_view(view_name, variables = nil)
+    def get_view(view_name, variables = {})
+      add_instance_vars(variables)
       template_file = File.join("app", "views", get_current_controller_base_name, "#{view_name}.erb")
       template = Tilt::ErubisTemplate.new(template_file)
       view = template.render(Object.new, variables)
+    end
+    def add_instance_vars(variables)
+      instance_variables.each do |var|
+        key = var.to_s.gsub(/^@/,"").to_sym
+        variables[key] = instance_variable_get(var)
+      end
     end
     def get_current_controller_base_name
       #PagesController => pages
